@@ -31,6 +31,20 @@ iframe{
 
 }
 
+table{
+	width: 100%
+}
+
+table, th, td {
+	border: 1px solid #003580;
+	
+}
+
+th, td {
+  text-align: center;
+  padding: 10px;
+}
+
 /*
 3. clases comunes (class, id,...)
 ****************************************************

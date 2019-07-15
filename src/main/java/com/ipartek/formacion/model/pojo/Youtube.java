@@ -14,9 +14,12 @@ public class Youtube {
 	private int reproduciones;
 
 	// constructores
-
-		public Youtube(int id, String titulo, String codigo) throws Exception {
+		public Youtube () {
 			super();
+		}
+		
+		public Youtube(int id, String titulo, String codigo) throws Exception {
+			this();
 			this.setId(id);
 			this.setTitulo(titulo);
 			this.setCodigo(codigo);
