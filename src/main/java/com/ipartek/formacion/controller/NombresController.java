@@ -33,7 +33,7 @@ public class NombresController extends HttpServlet {
 			request.setAttribute("nombres", nombres);
 		} else {
 			String nameSearch = request.getParameter("buscar");
-			
+			rellenarArray();
 			for(String n : nombres ) {
 				if(nameSearch.equals(n)) {
 					request.setAttribute("nombreBuscado", nameSearch);

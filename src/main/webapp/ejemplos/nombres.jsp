@@ -7,8 +7,8 @@
 	<div class="col-8">
 		<h2>Listado de nombres</h2>
 		<form action="nombres" method="get">
-			<input type="text" name="buscar" placehorder="Dime tu nombre" required>
-			<button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+			<input type="text" name="buscar" id="buscar" placehorder="Dime tu nombre">
+			<button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
 		</form>
 		<ul>
 			<%ArrayList<String> listNames = (ArrayList<String>) request.getAttribute("nombres");
