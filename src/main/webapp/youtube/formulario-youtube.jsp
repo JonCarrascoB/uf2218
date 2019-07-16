@@ -3,6 +3,7 @@
 	
 	<h1>Crear video</h1>
 	<form action="crearVideo" method="post">
+		<p style="color: red">${mensaje}</p>
   		<div class="form-group">
     		<label for="videoId">Inserte la id:</label>
     		<input type="number" class="form-control" name="videoId "id="videoId"  value="1" step="1">

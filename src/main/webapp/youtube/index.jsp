@@ -66,16 +66,28 @@
       			<td><a class="btn btn-danger btn-block mb-2" href="crearVideo">Eliminar</a></td>
     		</tr>
     		<% ArrayList<Youtube> listVideo = (ArrayList<Youtube>) request.getAttribute("videos");
-				for(Youtube v : listVideo){
-				%>
-				<tr>
-					<th scope="row"><%=v.getId() %></th>
-					<td><%=v.getTitulo()%></td>
-					<td><%=v.getCodigo()%></td>
-					<td><%=v.getReproduciones()%></td>
-					<td><a class="btn btn-success btn-block mb-2" href="youtube/detalle.jsp">Detalles</a></td>
-      				<td><a class="btn btn-danger btn-block mb-2" href="crearVideo">Eliminar</a></td>
-				</tr>
+				if(listVideo != null){
+    				for(Youtube v : listVideo){
+					%>
+					<tr>
+						<th scope="row"><%=v.getId() %></th>
+						<td><%=v.getTitulo()%></td>
+						<td><%=v.getCodigo()%></td>
+						<td><%=v.getReproduciones()%></td>
+						<td><a class="btn btn-success btn-block mb-2" href="youtube/detalle.jsp">Detalles</a></td>
+      					<td><a class="btn btn-danger btn-block mb-2" href="crearVideo">Eliminar</a></td>
+					</tr>
+					<%}
+				} else {
+					%>
+					<tr>
+						<th scope="row">##</th>
+						<td>Nuevo Video</td>
+						<td>Nuevo Codigo</td>
+						<td>Nº de reproducciones</td>
+						<td><a class="btn btn-success btn-block mb-2" href="youtube/detalle.jsp">Detalles</a></td>
+      					<td><a class="btn btn-danger btn-block mb-2" href="crearVideo">Eliminar</a></td>
+					</tr>
 				<%}%>
   		</tbody>
 	</table>

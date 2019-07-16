@@ -6,9 +6,15 @@
   		<ul class="list-group text-primary">
   			<li class="list-group-item"><a href="ejemplos/basico.jsp">Ejemplo de Servlet Basico sin JSP</a></li>
   			<li class="list-group-item"><a href="ejemplos/basico2.jsp">Ejemplo de Servlet Basico con JSP</a></li>
-  			<li class="list-group-item">...</li>
-  			<li class="list-group-item">...</li>
-  			<li class="list-group-item">...</li>
+  			<li class="list-group-item"><a href="ejemplos/basico3.jsp">Ejemplo de Servlet Content Type</a></li>
+  			<li class="list-group-item"><a href="ejemplos/basico5.jsp">Get y Post</a></li>
+  			<li class="list-group-item"><a href="nombres">Ejercicio nombres</a></li>
+  			<li class="list-group-item">JSP</li>
+  			<li class="list-group-item">JSTL - Java Server Tag Libreries</li>
+  			<li class="list-group-item">Session</li>
+  			<li class="list-group-item">Cookies</li>
+  			<li class="list-group-item">Filtros</li>
+  			<li class="list-group-item">Listeners o escuchadores de eventos</li>
 		</ul>
   	
 <%@include file="includes/footer.jsp" %>
