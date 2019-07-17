@@ -18,7 +18,8 @@ import com.ipartek.formacion.model.pojo.Youtube;
 public class YoutubeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private ArrayList<Youtube> videos = new ArrayList<Youtube>();
+	private static ArrayList<Youtube> videos = new ArrayList<Youtube>();
+	private static ArrayList<Youtube> resultado;
        
 	private static final String VIEW_RESPUESTA = "/youtube/index.jsp";
 	private static final String VIEW_INDEX = "/youtube/formulario-youtube.jsp";
@@ -29,15 +30,38 @@ public class YoutubeController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String id = request.getParameter("videoId");
-		for (int i = 0; i < videos.size(); i++) {
-			if(id.equals(videos.get(i).getId())) {
-				videos.remove(videos.get(i));
+		String videoSearch = request.getParameter("buscar");
+		
+		if(videoSearch == null) {
+			String id = request.getParameter("videoId");
+			for (int i = 0; i < videos.size(); i++) {
+				if(id.equals(videos.get(i).getId())) {
+					videos.remove(videos.get(i));
+				}
 			}
+			
+			request.setAttribute("mensaje", "El video "+ id +" ha sido eliminado");
+			request.setAttribute("videos", videos);
+		} else {
+			resultado = new ArrayList<Youtube>();
+			for(int i=0; i<videos.size(); i++) {
+				if(videos.get(i).equals(videoSearch)) {
+					resultado.add(videos.get(i));
+				} 
+			}
+			request.setAttribute("videos", resultado);
+			
+			String id = request.getParameter("videoId");
+			for (int i = 0; i < videos.size(); i++) {
+				if(id.equals(videos.get(i).getId())) {
+					videos.remove(videos.get(i));
+				}
+			}
+			
+			request.setAttribute("mensaje", "El video "+ id +" ha sido eliminado");
+			request.setAttribute("videos", videos);
 		}
 		
-		request.setAttribute("mensaje", "El video "+ id +" ha sido eliminado");
-		request.setAttribute("videos", videos);
 		
 		// request interna o ir a una JSP
 		request.getRequestDispatcher(view).forward(request, response);

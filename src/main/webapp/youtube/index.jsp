@@ -5,6 +5,12 @@
 <%@include file="../includes/navbar.jsp" %>
 	
 	<h1>Listado de Videos</h1>
+	<form class="form-inline mb-2" action="crearVideo" method="get">
+		<label class="sr-only" for="buscar">Video a buscar</label>
+		<input class="form-control col-md-4" type="search" name="buscar" id="buscar" value="${buscar}" placehorder="Dime tu nombre" required>
+		<button class="btn btn-primary ml-2" type="submit"><i class="fas fa-search"></i></button>
+	</form>
+	
 	<table class="table">
   		<thead>
     		<tr>

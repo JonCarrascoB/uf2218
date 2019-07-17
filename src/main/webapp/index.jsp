@@ -9,8 +9,8 @@
   			<li class="list-group-item"><a href="ejemplos/basico3.jsp">Ejemplo de Servlet Content Type</a></li>
   			<li class="list-group-item"><a href="ejemplos/basico5.jsp">Get y Post</a></li>
   			<li class="list-group-item"><a href="nombres">Ejercicio nombres</a></li>
-  			<li class="list-group-item">JSP</li>
-  			<li class="list-group-item">JSTL - Java Server Tag Libreries</li>
+  			<li class="list-group-item"><a href="jsp">JSP</a></li>
+  			<li class="list-group-item"><a href="jstl">JSTL - Java Server Tag Libreries</a></li>
   			<li class="list-group-item">Session</li>
   			<li class="list-group-item">Cookies</li>
   			<li class="list-group-item">Filtros</li>
