@@ -47,18 +47,6 @@
 					<input class="form-control col-md-4" type="text" name="nombre" id="nombre" placehorder="Dime tu nombre" required>
 					<input class="mt-2" type="submit" value="Guardar">
 				</form>
-				<div class="alert alert-danger alert-dismissible fade show" role="alert">
-  					<strong>${mensajeFail}</strong>
-  					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    					<span aria-hidden="true">&times;</span>
-  					</button>
-				</div>
-				<div class="alert alert-success alert-dismissible fade show" role="alert">
-  					<strong>${mensajeOk}</strong>
-  					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    					<span aria-hidden="true">&times;</span>
-  					</button>
-				</div>
 			</section>
 		</div>
 	</div>
