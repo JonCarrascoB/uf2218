@@ -5,12 +5,16 @@
 
 	<h1>Ejercicio Nombres</h1>
 	
-	<div class="alert alert-${mensaje.tipo} alert-dismissible fade show" role="alert">
-  		<strong>${mensaje.text}</strong>
-  		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    		<span aria-hidden="true">&times;</span>
-  		</button>
+	<% if(request.getAttribute("mensaje")!= null){ %>
+	<div class=row>
+		<div class="alert alert-${mensaje.tipo} alert-dismissible fade show" role="alert">
+	  		<strong>${mensaje.texto}</strong>
+	  		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	    		<span aria-hidden="true">&times;</span>
+	  		</button>
+		</div>
 	</div>
+	<%} %>
 	
 	<div class=row>
 		<div class="col-8">
@@ -20,12 +24,16 @@
 					<label class="sr-only" for="buscar">Nombre</label>
 					<input class="form-control col-md-4" type="search" name="buscar" id="buscar" value="${buscar}" placehorder="Dime tu nombre" required>
 					<button class="btn btn-primary ml-2" type="submit"><i class="fas fa-search"></i></button>
+					<a href="nombres" class="btn btn-danger ml-2 mb-1">Limpiar filtro</a>
 				</form>
 			
-				<% if(request.getAttribute("buscar")!= null){ %>
-				<p class=text-muted">Resultado de la busqueda de <strong>${buscar}</strong></p>
+				<% if(request.getAttribute("buscar")!= null){ %>	
+  					<p class=text-muted">Resultado de la busqueda de <strong>${buscar}</strong></p>	
 				<%} %>
-			
+				
+				
+				<!-- <button class="btn btn-primary ml-2" type="reset"><i class="fas fa-times"></i></button> -->
+				
 				<ul class="list-group">
 					<%ArrayList<String> listNames = (ArrayList<String>) request.getAttribute("nombres");
 					if(listNames != null){

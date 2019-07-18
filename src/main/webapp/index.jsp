@@ -10,6 +10,7 @@
   			<li class="list-group-item"><a href="ejemplos/basico5.jsp">Get y Post</a></li>
   			<li class="list-group-item"><a href="nombres">Ejercicio nombres</a></li>
   			<li class="list-group-item"><a href="ejemplos/erroneo.jsp">Error Page</a></li>
+  			<li class="list-group-item"><a href="ejemplos/el.jsp">EL - Expression Lenguages</a></li>
   			<li class="list-group-item"><a href="ciclovida">Ciclo de vida de un Servelet</a></li>
   			<li class="list-group-item"><a href="jsp">JSP</a></li>
   			<li class="list-group-item"><a href="jstl">JSTL - Java Server Tag Libreries</a></li>

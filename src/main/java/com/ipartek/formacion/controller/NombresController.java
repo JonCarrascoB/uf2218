@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.controller.pojo.Alert;
-import com.ipartek.formacion.model.pojo.Youtube;
 
 /**
  * Servlet implementation class NombresController

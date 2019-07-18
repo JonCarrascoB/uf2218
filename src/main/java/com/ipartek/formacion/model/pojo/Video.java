@@ -1,6 +1,6 @@
 package com.ipartek.formacion.model.pojo;
 
-public class Youtube {
+public class Video {
 	
 	public static final int LONGITUD_CODIGO = 11;
 	public static final int LONGITUD_MIN_TITULO = 2;
@@ -9,19 +9,19 @@ public class Youtube {
 	
 	//Atributos
 	private int id;
-	private String titulo;  // minimo 2 letras, max 150
+	private String nombre;  // minimo 2 letras, max 150
 	private String codigo;  // exactamente 11
 	private int reproduciones;
 
 	// constructores
-		public Youtube () {
+		public Video () {
 			super();
 		}
 		
-		public Youtube(int id, String titulo, String codigo) throws Exception {
+		public Video(int id, String nombre, String codigo) throws Exception {
 			this();
 			this.setId(id);
-			this.setTitulo(titulo);
+			this.setNombre(nombre);
 			this.setCodigo(codigo);
 			this.reproduciones = 0;
 		}
@@ -37,33 +37,20 @@ public class Youtube {
 		}
 		
 		
-		public String getTitulo() {
-			return titulo;
+		public String getNombre() {
+			return nombre;
 		}
 
-		public void setTitulo(String titulo) throws Exception {
-
-			if (titulo != null && titulo.length() >= LONGITUD_MIN_TITULO && titulo.length() <= LONGITUD_MAX_TITULO) {
-				this.titulo = titulo;
-			} else {
-				String msg = String.format("Titulo debe ser entre "+LONGITUD_MIN_TITULO+" y "+LONGITUD_MAX_TITULO);
-				throw new Exception(msg);
-			}
-
+		public void setNombre(String nombre) {
+			this.nombre = nombre;
 		}
 
 		public String getCodigo() {
 			return codigo;
 		}
 
-		public void setCodigo(String codigo) throws Exception {
-
-			if (codigo != null && codigo.length() == LONGITUD_CODIGO) {
-
-				this.codigo = codigo;
-			} else {
-				throw new Exception("Longitud de codigo debe ser " + LONGITUD_CODIGO);
-			}
+		public void setCodigo(String codigo) {
+			this.codigo = codigo;
 		}
 
 		public int getReproduciones() {
@@ -77,7 +64,7 @@ public class Youtube {
 		// funciones
 		@Override
 		public String toString() {
-			return "Youtube [id=" + id + ", titulo=" + titulo + ", codigo=" + codigo + ", reproduciones=" + reproduciones + "]";
+			return "Youtube [id=" + id + ", titulo=" + nombre + ", codigo=" + codigo + ", reproduciones=" + reproduciones + "]";
 		}
 
 		public String getUrl() {

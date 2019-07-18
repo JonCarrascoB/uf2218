@@ -1,4 +1,5 @@
-<%@page import="com.ipartek.formacion.model.pojo.Youtube" %>
+<%@page import="com.ipartek.formacion.model.dao.VideoDAO"%>
+<%@page import="com.ipartek.formacion.model.pojo.Video" %>
 <%@page import="java.util.ArrayList" %>
 
 <%@include file="../includes/header.jsp" %>
@@ -9,6 +10,7 @@
 		<label class="sr-only" for="buscar">Video a buscar</label>
 		<input class="form-control col-md-4" type="search" name="buscar" id="buscar" value="${buscar}" placehorder="Dime tu nombre" required>
 		<button class="btn btn-primary ml-2" type="submit"><i class="fas fa-search"></i></button>
+		<a href="crearVideos?op=2" class="btn btn-primary ml-2 mb-1">+ Nuevo Video</a>
 	</form>
 	
 	<table class="table">
@@ -18,70 +20,25 @@
       			<th scope="col">Titulo</th>
       			<th scope="col">Codigo</th>
       			<th scope="col">Numero de reproduciones</th>
-      			<th scope="col">Detalle</th>
+      			<th scope="col"></th>
+      			<th scope="col">Detalles</th>
       			<th scope="col"></th>
     		</tr>
   		</thead>
   		<tbody>
-    		<tr>
-      			<th scope="row">1</th>
-      			<td>Travis - Idlewild</td>
-      			<td>WLKBOJ9jyQg</td>
-      			<td>4</td>
-      			<td><a class="btn btn-success btn-block mb-2" href="youtube/detalle.jsp">Detalles</a></td>
-      			<td><a class="btn btn-danger btn-block mb-2" href="crearVideo">Eliminar</a></td>
-    		</tr>
-   			 <tr>
-      			<th scope="row">2</th>
-      			<td>AC/DC - Highway to Hell</td>
-      			<td>gEPmA3USJdI</td>
-      			<td>2</td>
-      			<td><a class="btn btn-success btn-block mb-2" href="youtube/detalle.jsp">Detalles</a></td>
-      			<td><a class="btn btn-danger btn-block mb-2" href="crearVideo">Eliminar</a></td>
-    		</tr>
-    		<tr>
-      			<th scope="row">3</th>
-      			<td>MUSE - Uprising</td>
-      			<td>w8KQmps-Sog</td>
-      			<td>1</td>
-      			<td><a class="btn btn-success btn-block mb-2" href="youtube/detalle.jsp">Detalles</a></td>
-      			<td><a class="btn btn-danger btn-block mb-2" href="crearVideo">Eliminar</a></td>
-    		</tr>
-    		<tr>
-      			<th scope="row">4</th>
-      			<td>Editors - Racin Rats</td>
-      			<td>-KTqnCBelPE</td>
-      			<td>1</td>
-      			<td><a class="btn btn-success btn-block mb-2" href="youtube/detalle.jsp">Detalles</a></td>
-      			<td><a class="btn btn-danger btn-block mb-2" href="crearVideo">Eliminar</a></td>
-    		</tr>
-    		<tr>
-      			<th scope="row">5</th>
-      			<td>Future Islands - Cave</td>
-      			<td>RGrhubD8VDg</td>
-      			<td>32</td>
-      			<td><a class="btn btn-success btn-block mb-2" href="youtube/detalle.jsp">Detalles</a></td>
-      			<td><a class="btn btn-danger btn-block mb-2" href="crearVideo">Eliminar</a></td>
-    		</tr>
-    		<tr>
-      			<th scope="row">6</th>
-      			<td>Loquillo - Cadillac Solitario</td>
-      			<td>4sWCu-LA4dw</td>
-      			<td>1</td>
-      			<td><a class="btn btn-success btn-block mb-2" href="youtube/detalle.jsp">Detalles</a></td>
-      			<td><a class="btn btn-danger btn-block mb-2" href="crearVideo">Eliminar</a></td>
-    		</tr>
-    		<% ArrayList<Youtube> listVideo = (ArrayList<Youtube>) request.getAttribute("videos");
-				if(listVideo != null){
-    				for(Youtube v : listVideo){
-					%>
+    		<%
+    		ArrayList<Video> listVideo = (ArrayList<Video>) request.getAttribute("videos");
+    				if(listVideo != null){
+    		    				for(Video v : listVideo){
+    		%>
 					<tr>
-						<th scope="row"><%=v.getId() %></th>
-						<td><%=v.getTitulo()%></td>
-						<td><%=v.getCodigo()%></td>
+						<th scope="row"><%=v.getId()%></th>
+						<td><%=v.getNombre() %></td>
+						<td><%=v.getCodigo() %></td>
 						<td><%=v.getReproduciones()%></td>
+						<td><a class="btn btn-primary btn-block mb-2" href="crearVideo?op=3&id=<%=v.getId()%>">Modificar</a></td>
 						<td><a class="btn btn-success btn-block mb-2" href="youtube/detalle.jsp">Detalles</a></td>
-      					<td><a class="btn btn-danger btn-block mb-2" href="crearVideo">Eliminar</a></td>
+      					<td><a class="btn btn-danger btn-block mb-2" href="crearVideo?op=4&id=<%=v.getId()%>">Eliminar</a></td>
 					</tr>
 					<%}
 				} else {
