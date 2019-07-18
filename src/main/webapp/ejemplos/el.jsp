@@ -60,7 +60,149 @@
 							<td>+</td>
 							<td>Addition</td>
 						</tr>
-							<tr><td>-</td><td>Subtraction or negation of a value</td></tr><tr><td>*</td><td>Multiplication</td></tr><tr><td>/ or div</td><td>Division</td></tr><tr><td>% or mod</td><td>Modulo (remainder)</td></tr><tr><td>== or eq</td><td>Test for equality</td></tr><tr><td>!= or ne</td><td>Test for inequality</td></tr><tr><td>&lt; or lt</td><td>Test for less than</td></tr><tr><td>&gt; or gt</td><td>Test for greater than</td></tr><tr><td>&lt;= or le</td><td>Test for less than or equal</td></tr><tr><td>&gt;= or gt</td><td>Test for greater than or equal</td></tr><tr><td>&amp;&amp; or and</td><td>Test for logical AND</td></tr><tr><td>|| or or</td><td>Test for logical OR</td></tr><tr><td>! or not</td><td>Unary Boolean complement</td></tr><tr><td>empty</td><td>Test for empty variable values</td></tr></tbody></table><pre></pre><h2>Objetos Implicitos:</h2><p><br></p><p></p><table><tbody><tr><th>Implicit object</th><th>Description</th></tr><tr><td>pageScope</td><td>Scoped variables from page scope</td></tr><tr><td>requestScope</td><td>Scoped variables from request scope</td></tr><tr><td>sessionScope</td><td>Scoped variables from session scope</td></tr><tr><td>applicationScope</td><td>Scoped variables from application scope</td></tr><tr><td>param</td><td>Request parameters as strings</td></tr><tr><td>paramValues</td><td>Request parameters as collections of strings</td></tr><tr><td>header</td><td>HTTP request headers as strings</td></tr><tr><td>headerValues</td><td>HTTP request headers as collections of strings</td></tr><tr><td>initParam</td><td>Context-initialization parameters</td></tr><tr><td><a class="autolink" title="Cookie" href="http://www.campus.formacion.ipartek.com/moodle/mod/url/view.php?id=722">cookie</a></td><td><a class="autolink" title="Cookie" href="http://www.campus.formacion.ipartek.com/moodle/mod/url/view.php?id=722">Cookie</a> values</td></tr><tr><td>pageContext</td><td>The JSP PageContext object for the current page</td></tr></tbody></table><h2><br></h2><h2>Palabras Reservadas</h2><p><a name="indexterm-212"></a></p><table cellspacing="0" cellpadding="10" border="1" width="100%"><tbody><tr><td align="left" valign="top"><p><tt>and</tt></p></td><td align="left" valign="top"><p><tt>or</tt></p></td><td align="left" valign="top"><p><tt>not</tt></p></td><td align="left" valign="top"><p><tt>eq</tt></p></td></tr><tr><td align="left" valign="top"><p><tt>ne</tt></p></td><td align="left" valign="top"><p><tt>lt</tt></p></td><td align="left" valign="top"><p><tt>gt</tt></p></td><td align="left" valign="top"><p><tt>le</tt></p></td></tr><tr><td align="left" valign="top"><p><tt>ge</tt></p></td><td align="left" valign="top"><p><tt>true</tt></p></td><td align="left" valign="top"><p><tt>false</tt></p></td><td align="left" valign="top"><p><tt>null</tt></p></td></tr><tr><td align="left" valign="top"><p><tt>instanceof</tt></p></td><td align="left" valign="top"><p><tt>empty</tt></p></td><td align="left" valign="top"><p><tt>div</tt></p></td><td align="left" valign="top"><p><tt>mod</tt></p></td></tr></tbody></table><p><br></p><p><br></p><p><br></p></div></div><div class="modified">Última modificación: miércoles, 18 de octubre de 2017, 17:12</div></div>
+						<tr>
+							<td>-</td>
+							<td>Subtraction or negation of a value</td>
+						</tr>
+						<tr>
+							<td>*</td>
+							<td>Multiplication</td>
+						</tr>
+						<tr>
+							<td>/ or div</td>
+							<td>Division</td>
+						</tr>
+						<tr>
+							<td>% or mod</td>
+							<td>Modulo (remainder)</td>
+						</tr>
+						<tr>
+							<td>== or eq</td>
+							<td>Test for equality</td>
+						</tr>
+						<tr>
+							<td>!= or ne</td>
+							<td>Test for inequality</td>
+						</tr>
+						<tr>
+							<td>&lt; or lt</td>
+							<td>Test for less than</td>
+						</tr>
+						<tr>
+							<td>&gt; or gt</td>
+							<td>Test for greater than</td>
+						</tr>
+						<tr>
+							<td>&lt;= or le</td>
+							<td>Test for less than or equal</td>
+						</tr>
+						<tr>
+							<td>&gt;= or gt</td>
+							<td>Test for greater than or equal</td>
+						</tr>
+						<tr>
+							<td>&amp;&amp; or and</td>
+							<td>Test for logical AND</td>
+						</tr>
+						<tr>
+							<td>|| or or</td>
+							<td>Test for logical OR</td>
+						</tr>
+						<tr>
+							<td>! or not</td>
+							<td>Unary Boolean complement</td>
+						</tr>
+						<tr>
+							<td>empty</td>
+							<td>Test for empty variable values</td>
+						</tr>
+					</tbody>
+				</table>
+				<h2>Objetos Implicitos:</h2>
+				<table>
+					<tbody>
+						<tr>
+							<th>Implicit object</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>pageScope</td>
+							<td>Scoped variables from page scope</td>
+						</tr>
+						<tr>
+							<td>requestScope</td>
+							<td>Scoped variables from request scope</td>
+						</tr>
+						<tr>
+							<td>sessionScope</td>
+							<td>Scoped variables from session scope</td>
+						</tr>
+						<tr>
+							<td>applicationScope</td>
+							<td>Scoped variables from application scope</td>
+						</tr>
+						<tr>
+							<td>param</td>
+							<td>Request parameters as strings</td>
+						</tr>
+						<tr>
+							<td>paramValues</td>
+							<td>Request parameters as collections of strings</td>
+						</tr>
+						<tr>
+							<td>header</td>
+							<td>HTTP request headers as strings</td>
+						</tr>
+						<tr>
+							<td>headerValues</td>
+							<td>HTTP request headers as collections of strings</td>
+						</tr>
+						<tr>
+							<td>initParam</td>
+							<td>Context-initialization parameters</td>
+						</tr>
+						<tr>
+							<td><a class="autolink" title="Cookie" href="http://www.campus.formacion.ipartek.com/moodle/mod/url/view.php?id=722">cookie</a></td>
+							<td><a class="autolink" title="Cookie" href="http://www.campus.formacion.ipartek.com/moodle/mod/url/view.php?id=722">Cookie</a> values</td>
+						</tr>
+						<tr>
+							<td>pageContext</td>
+							<td>The JSP PageContext object for the current page</td>
+						</tr>
+					</tbody>
+				</table>
+				<h2>Palabras Reservadas</h2>
+				<p><a name="indexterm-212"></a></p><table cellspacing="0" cellpadding="10" border="1" width="100%">
+					<tbody>
+						<tr>
+							<td align="left" valign="top"><p><tt>and</tt></p></td>
+							<td align="left" valign="top"><p><tt>or</tt></p></td>
+							<td align="left" valign="top"><p><tt>not</tt></p></td>
+							<td align="left" valign="top"><p><tt>eq</tt></p></td>
+						</tr>
+						<tr>
+							<td align="left" valign="top"><p><tt>ne</tt></p></td>
+							<td align="left" valign="top"><p><tt>lt</tt></p></td>
+							<td align="left" valign="top"><p><tt>gt</tt></p></td>
+							<td align="left" valign="top"><p><tt>le</tt></p></td>
+						</tr>
+						<tr>
+							<td align="left" valign="top"><p><tt>ge</tt></p></td>
+							<td align="left" valign="top"><p><tt>true</tt></p></td>
+							<td align="left" valign="top"><p><tt>false</tt></p></td>
+							<td align="left" valign="top"><p><tt>null</tt></p></td>
+						</tr>
+						<tr>
+							<td align="left" valign="top"><p><tt>instanceof</tt></p></td>
+							<td align="left" valign="top"><p><tt>empty</tt></p></td>
+							<td align="left" valign="top"><p><tt>div</tt></p></td>
+							<td align="left" valign="top"><p><tt>mod</tt></p></td>
+						</tr>
+					</tbody>
+				</table>
+				</p>
+			</div>
+		</div>
 	
 	</section>
 	
