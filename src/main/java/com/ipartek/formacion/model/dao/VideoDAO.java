@@ -3,10 +3,13 @@ package com.ipartek.formacion.model.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.ipartek.formacion.model.ConnectionManager;
 import com.ipartek.formacion.model.pojo.Video;
+import com.mysql.jdbc.MysqlDataTruncation;
+import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 
 public class VideoDAO {
 	
@@ -33,11 +36,7 @@ public class VideoDAO {
 				ResultSet rs = pst.executeQuery()) {
 
 			while (rs.next()) {
-				Video v = new Video();
-				v.setId( rs.getInt("id") );
-				v.setNombre( rs.getString("nombre"));
-				v.setCodigo( rs.getString("codigo"));
-				lista.add(v);
+				lista.add(mapper(rs));
 			}
 		} catch (Exception e) {
 
@@ -48,14 +47,15 @@ public class VideoDAO {
 
 	public static Video getById(int id) {
 		Video video = new Video();
-		String sql = "SELECT `id`, `nombre`, `codigo` FROM `video` WHERE `id` = id;";
-		try (Connection con = ConnectionManager.getConnection(); PreparedStatement pst = con.prepareStatement(sql)) {
+		String sql = "SELECT `id`, `nombre`, `codigo` FROM `video` WHERE `id` = ?;";
+		try (Connection con = ConnectionManager.getConnection(); 
+				PreparedStatement pst = con.prepareStatement(sql)) {
+
+			//sustituye el primer ? por la variable id
 			pst.setInt(1, id);
 			try (ResultSet rs = pst.executeQuery()) {
 				if (rs.next()) {
-					video.setId( rs.getInt("id") );
-					video.setNombre( rs.getString("nombre"));
-					video.setCodigo( rs.getString("codigo"));
+					video = mapper(rs);
 				}
 			}
 		} catch (Exception e) {
@@ -80,31 +80,33 @@ public class VideoDAO {
 		}
 		return lista;
 	}
+	*/
 	
-	
-	@Override
-	public boolean save(Rol pojo) throws SQLException {
+	public boolean save(Video video) throws SQLException {
 		boolean resultado = false;
-		if (pojo != null) {
+		if (video != null) {
 			// Sanitize nombre
-			pojo.setNombre(Utilidades.limpiarEspacios(pojo.getNombre()));
-			if (pojo.getId() == -1) {
-				resultado = crear(pojo);
+			video.setNombre(video.getNombre());
+			if (video.getId() == -1) {
+				resultado = crear(video);
 			} else {
-				resultado = modificar(pojo);
+				resultado = modificar(video);
 			}
 		}
 		return resultado;
 	}
-	private boolean modificar(Rol pojo) throws MysqlDataTruncation, MySQLIntegrityConstraintViolationException {
+	
+	
+	private boolean modificar(Video video) throws MysqlDataTruncation, MySQLIntegrityConstraintViolationException {
 		boolean resultado = false;
-		String sql = "UPDATE `nidea`.`rol` SET `nombre`= ? WHERE  `id`= ?;";
-		try (Connection con = ConnectionManager.getConnection(); PreparedStatement pst = con.prepareStatement(sql)) {
-			pst.setString(1, pojo.getNombre());
-			pst.setInt(2, pojo.getId());
-			resultado = doSave(pst, pojo);
+		String sql = "UPDATE `v2019`.`video` SET `nombre`= ? WHERE  `id`= ?;";
+		try (Connection con = ConnectionManager.getConnection(); 
+				PreparedStatement pst = con.prepareStatement(sql)) {
+			pst.setString(1, video.getNombre());
+			pst.setInt(2, video.getId());
+			resultado = doSave(pst, video);
 		} catch (MySQLIntegrityConstraintViolationException e) {
-			System.out.println("Rol duplicado");
+			System.out.println("Video duplicado");
 			throw e;
 		} catch (MysqlDataTruncation e) {
 			System.out.println("Nombre muy largo");
@@ -114,14 +116,17 @@ public class VideoDAO {
 		}
 		return resultado;
 	}
-	private boolean crear(Rol pojo) throws MySQLIntegrityConstraintViolationException, MysqlDataTruncation {
+	
+	private boolean crear(Video video) throws MySQLIntegrityConstraintViolationException, MysqlDataTruncation {
 		boolean resultado = false;
-		String sql = "INSERT INTO `nidea`.`rol` (`nombre`) VALUES (?);";
-		try (Connection con = ConnectionManager.getConnection(); PreparedStatement pst = con.prepareStatement(sql)) {
-			pst.setString(1, pojo.getNombre());
-			resultado = doSave(pst, pojo);
+		String sql = "INSERT INTO `v2019`.`video` (`nombre`, `codigo`) VALUES (?, ?);";
+		try (Connection con = ConnectionManager.getConnection(); 
+				PreparedStatement pst = con.prepareStatement(sql)) {
+			pst.setString(1, video.getNombre());
+			pst.setString(2, video.getCodigo());
+			resultado = doSave(pst, video);
 		} catch (MySQLIntegrityConstraintViolationException e) {
-			System.out.println("Rol duplicado");
+			System.out.println("video duplicado");
 			throw e;
 		} catch (MysqlDataTruncation e) {
 			System.out.println("Nombre muy largo");
@@ -131,7 +136,9 @@ public class VideoDAO {
 		}
 		return resultado;
 	}
-	private boolean doSave(PreparedStatement pst, Rol pojo)
+	
+	
+	private boolean doSave(PreparedStatement pst, Video video)
 			throws MySQLIntegrityConstraintViolationException, MysqlDataTruncation {
 		boolean resultado = false;
 		try {
@@ -139,13 +146,13 @@ public class VideoDAO {
 			if (affectedRows == 1) {
 				try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
 					if (generatedKeys.next()) {
-						pojo.setId(generatedKeys.getInt(1));
+						video.setId(generatedKeys.getInt(1));
 					}
 				}
 				resultado = true;
 			}
 		} catch (MySQLIntegrityConstraintViolationException e) {
-			System.out.println("Rol duplicado");
+			System.out.println("Video duplicado");
 			throw e;
 		} catch (MysqlDataTruncation e) {
 			System.out.println("Nombre muy largo");
@@ -155,10 +162,11 @@ public class VideoDAO {
 		}
 		return resultado;
 	}
-	@Override
+	
+	
 	public boolean delete(int id) {
 		boolean resultado = false;
-		String sql = "DELETE FROM `rol` WHERE  `id`= ?;";
+		String sql = "DELETE FROM `video` WHERE  `id`= ?;";
 		try (Connection con = ConnectionManager.getConnection(); PreparedStatement pst = con.prepareStatement(sql);) {
 			pst.setInt(1, id);
 			int affetedRows = pst.executeUpdate();
@@ -170,14 +178,15 @@ public class VideoDAO {
 		}
 		return resultado;
 	}
-	@Override
-	public Rol mapper(ResultSet rs) throws SQLException {
-		Rol rol = new Rol();
-		rol.setId(rs.getInt("id"));
-		rol.setNombre(rs.getString("nombre"));
-		return rol;
+	
+	public static Video mapper(ResultSet rs) throws SQLException {
+		Video v = new Video();
+		v.setId(rs.getInt("id"));
+		v.setNombre(rs.getString("nombre"));
+		v.setCodigo(rs.getString("codigo"));
+		return v;
 	}
-*/
+
 	
 	
 }
