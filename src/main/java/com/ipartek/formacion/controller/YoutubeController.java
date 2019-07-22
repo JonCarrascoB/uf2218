@@ -29,9 +29,9 @@ import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 public class YoutubeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	 
-	public static final String VIEW_INDEX = "backoffice/youtube/index.jsp";
-	public static final String VIEW_FORM = "backoffice/youtube/formulario-youtube.jsp";
-	public static final String VIEW_DETALLE = "backoffice/youtube/detalle.jsp";
+	public static final String VIEW_INDEX = "youtube/index.jsp";
+	public static final String VIEW_FORM = "youtube/formulario-youtube.jsp";
+	public static final String VIEW_DETALLE = "youtube/detalle.jsp";
 	public static String view = VIEW_INDEX;
 	
 	public static final String OP_LISTAR = "0";

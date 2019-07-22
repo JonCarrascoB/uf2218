@@ -4,12 +4,12 @@
 <%@page import="com.ipartek.formacion.model.pojo.Video" %>
 <%@page import="java.util.ArrayList" %>
 
-<%@include file="../../includes/header.jsp" %>
-<%@include file="../../includes/navbar.jsp" %>
+<%@include file="../includes/header.jsp" %>
+<%@include file="../includes/navbar.jsp" %>
 	
 	<h1>Listado de Videos</h1>
 	
-	<%@include file="../../includes/mensaje.jsp"%>
+	<%@include file="../includes/mensaje.jsp"%>
 	
 	<form class="form-inline mb-2" action="crearVideo" method="get">
 		<label class="sr-only" for="buscar">Video a buscar</label>
@@ -83,4 +83,4 @@
   		</tbody>
 	</table>
 
-<%@include file="../../includes/footer.jsp" %>
+<%@include file="../includes/footer.jsp" %>

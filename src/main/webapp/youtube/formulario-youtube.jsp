@@ -1,10 +1,10 @@
 <%@page import="com.ipartek.formacion.controller.YoutubeController"%>
-<%@include file="../../includes/header.jsp" %>
-<%@include file="../../includes/navbar.jsp" %>
+<%@include file="../includes/header.jsp" %>
+<%@include file="../includes/navbar.jsp" %>
 	
 	<h1>Crear video</h1>
 	
-	<%@include file="../../includes/mensaje.jsp"%>
+	<%@include file="../includes/mensaje.jsp"%>
 
 	<form action="crearVideo" method="post">
 		<div class="form-group">
@@ -67,4 +67,4 @@
 		</div>
 		
 	</c:if>	
-<%@include file="../../includes/footer.jsp" %>
+<%@include file="../includes/footer.jsp" %>

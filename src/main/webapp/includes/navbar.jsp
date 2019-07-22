@@ -10,19 +10,18 @@
         			<a class="nav-link" href="index.jsp">Inicio <span class="sr-only">(current)</span></a>
       			</li>
       			<c:if test="${usuario != null }">
-	      			<li class="nav-item dropdown">
-	        			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	          				Youtube
-	        			</a>
-	        			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+	      			<!-- <li class="nav-item dropdown"> -->
+	        			<a class="nav-link" href="backoffice/index.jsp">Youtube</a>
+	        			<!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 	          				<a class="dropdown-item" href="crearVideo?op=0">Listado de Videos</a>
 	          				<a class="dropdown-item" href="crearVideo?op=1">Crear Video</a>
 	        			</div>
-	      			</li>
+	      			</li> -->
       			</c:if>
       		</ul>
       		<c:if test="${usuario == null }">
       			<a class="nav-link text-white" href="login.jsp">Login <span class="sr-only">(current)</span><i class="fas fa-user"></i></a>
+      			<a class="nav-link text-white" href="user">Sign in <span class="sr-only">(current)</span><i class="fas fa-sign-in-alt"></i></a>
       		</c:if>
         	<c:if test="${usuario != null }">
         		<span class="text-white">${usuario}</span>
