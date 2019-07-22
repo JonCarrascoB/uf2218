@@ -9,6 +9,7 @@
       			<li class="nav-item active">
         			<a class="nav-link" href="index.jsp">Inicio <span class="sr-only">(current)</span></a>
       			</li>
+      			
       			<c:if test="${usuario != null }">
 	      			<!-- <li class="nav-item dropdown"> -->
 	        			<a class="nav-link" href="backoffice/index.jsp">Youtube</a>
