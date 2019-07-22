@@ -1,5 +1,8 @@
 package com.ipartek.formacion.model.pojo;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Video {
 	
 	public static final int LONGITUD_CODIGO = 11;
@@ -9,13 +12,23 @@ public class Video {
 	
 	//Atributos
 	private int id;
-	private String nombre;  // minimo 2 letras, max 150
-	private String codigo;  // exactamente 11
+	
+	@NotNull
+	@Size(min=3, max=150) // minimo 2 letras, max 150
+	private String nombre;
+	
+	@NotNull
+	@Size(min=11, max=11, message="Exactamente debe ser 11 caracteres")
+	private String codigo;
 	private int reproduciones;
 
 	// constructores
 		public Video () {
 			super();
+			this.id = -1;
+			this.nombre = "";
+			this.codigo = "";
+			this.reproduciones= 0;
 		}
 		
 		public Video(int id, String nombre, String codigo) throws Exception {

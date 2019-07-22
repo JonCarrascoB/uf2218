@@ -13,7 +13,7 @@
 	
 	<base href="${pageContext.request.contextPath}/">
 	<!-- CSS propio -->
-	<link rel="stylesheet" type="text/css" href="css/styles.css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="resources/css/styles.css" media="screen"/>
 	
     <title>JEE</title>
   </head>

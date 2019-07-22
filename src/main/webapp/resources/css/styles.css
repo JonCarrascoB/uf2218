@@ -25,9 +25,11 @@
 2. se da estilo a todas las etiquetas y tengan el mismo estilo, la base
 *************************************************************************
 */
+
+
 iframe{
-	width: 560px;
-	height: 315px;
+	width: 660px;
+    height: 380px;
 
 }
 
@@ -35,10 +37,7 @@ table{
 	width: 100%
 }
 
-table, th, td {
-	border: 1px solid #003580;
-	
-}
+
 
 th, td {
   text-align: center;
