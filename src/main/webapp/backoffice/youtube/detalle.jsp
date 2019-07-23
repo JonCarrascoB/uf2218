@@ -12,7 +12,7 @@
 			<h3>Ultimos Videos Observados</h3>
 			<ul>
 				<c:forEach items="${videos}" var="v">
-					<li class="pb-2"><a href="backoffice/crearVideo?op=<%=YoutubeController.OP_DETALLE%>&id=${v.id}"><img class="rounded" alt="${v.nombre}" src="https://img.youtube.com/vi/${v.codigo}/default.jpg"></a></li>
+					<li class="pb-2"><a href="backoffice/crearVideo?op=<%=YoutubeController.OP_DETALLE%>&id=${v.id}"><img class="rounded" alt="${v.nombre}" src="https://img.youtube.com/vi/${v.codigo}/default.jpg"></a>${v.nombre}</li>
 				</c:forEach>
 			</ul>
 		</div>

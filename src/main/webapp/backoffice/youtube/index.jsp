@@ -39,7 +39,7 @@
 						<td>${v.nombre}</td>
 						<td>${v.codigo}</td>
 						<td>${v.reproduciones}</td>
-						<td><a class="btn btn-primary btn-block mb-2" href="backoffice/crearVideo?op=<%=YoutubeController.OP_MODIFICAR%>&id=${v.id}"><i class="far fa-edit"></i></a></td>
+						<td><a class="btn btn-primary btn-block mb-2" href="backoffice/crearVideo?op=<%=YoutubeController.OP_MODIFICAR%>&id=${v.id}"><i class="fas fa-edit"></i></a></td>
 						<td><a class="btn btn-success btn-block mb-2" href="backoffice/crearVideo?op=<%=YoutubeController.OP_DETALLE%>&id=${v.id}"><i class="fas fa-film"></i></a></td>
       					<td>
       						<!-- Button trigger modal -->

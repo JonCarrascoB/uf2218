@@ -15,8 +15,8 @@
   			<li class="list-group-item"><a href="jsp">JSP</a></li>
   			<li class="list-group-item"><a href="jstl">JSTL - Java Server Tag Libreries</a></li>
   			<li class="list-group-item"><a href="ejemplos/session.jsp">Session</a></li>
-  			<li class="list-group-item">Cookies</li>
-  			<li class="list-group-item"><a href="ejemplos/flitros.jsp">Filtros</a></li>
+  			<li class="list-group-item"><a href="ejemplos/cookies.jsp">Cookies</a></li>
+  			<li class="list-group-item"><a href="ejemplos/filtros.jsp">Filtros</a></li>
   			<li class="list-group-item"><a href="ejemplos/listeners.jsp">Listeners o escuchadores de eventos</a></li>
 			<li class="list-group-item"><a href="ejemplos/redireccion.jsp">Redireccion</a></li>
 		</ul>
