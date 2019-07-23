@@ -3,6 +3,7 @@ package com.ipartek.formacion.controller;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Set;
 
 import javax.servlet.ServletConfig;
@@ -16,6 +17,7 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
+import com.ipartek.formacion.controller.listener.UsuariosLogeadosListener;
 import com.ipartek.formacion.controller.pojo.Alert;
 import com.ipartek.formacion.model.dao.VideoDAO;
 import com.ipartek.formacion.model.pojo.Video;
@@ -25,7 +27,7 @@ import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 /**
  * Servlet implementation class crearVideo
  */
-@WebServlet("/crearVideo")
+@WebServlet("/backoffice/crearVideo")
 public class YoutubeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	 
@@ -42,7 +44,7 @@ public class YoutubeController extends HttpServlet {
 	public static final String OP_ELIMINAR = "5";
 	
 	private static VideoDAO videoDAO;
-	
+	private static ArrayList<Video> videos;
 	private Validator validator;
 	
 	
@@ -105,12 +107,23 @@ public class YoutubeController extends HttpServlet {
 
 	private void detallar(HttpServletRequest request, HttpServletResponse response) {
 		
-		String sid = request.getParameter("id");
-		int id = Integer.parseInt(sid);
 		
-		Video v = VideoDAO.getById(id);
-		request.setAttribute("video", v );
-		view = VIEW_DETALLE;
+			String sid = request.getParameter("id");
+			int id = Integer.parseInt(sid);
+		
+		
+			Video v = VideoDAO.getById(id);
+			request.setAttribute("video", v );
+			
+			if(request.getSession().getAttribute("videos") == null) {
+				videos = new ArrayList<Video>();
+				videos.add(v);
+			} else {
+				videos.add(v);
+			}
+			request.getSession().setAttribute("videos", videos );
+			view = VIEW_DETALLE;
+		
 		
 	}
 

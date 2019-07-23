@@ -14,10 +14,11 @@
   			<li class="list-group-item"><a href="ciclovida">Ciclo de vida de un Servelet</a></li>
   			<li class="list-group-item"><a href="jsp">JSP</a></li>
   			<li class="list-group-item"><a href="jstl">JSTL - Java Server Tag Libreries</a></li>
-  			<li class="list-group-item">Session</li>
+  			<li class="list-group-item"><a href="ejemplos/session.jsp">Session</a></li>
   			<li class="list-group-item">Cookies</li>
-  			<li class="list-group-item">Filtros</li>
-  			<li class="list-group-item">Listeners o escuchadores de eventos</li>
+  			<li class="list-group-item"><a href="ejemplos/flitros.jsp">Filtros</a></li>
+  			<li class="list-group-item"><a href="ejemplos/listeners.jsp">Listeners o escuchadores de eventos</a></li>
+			<li class="list-group-item"><a href="ejemplos/redireccion.jsp">Redireccion</a></li>
 		</ul>
   	
 <%@include file="includes/footer.jsp" %>

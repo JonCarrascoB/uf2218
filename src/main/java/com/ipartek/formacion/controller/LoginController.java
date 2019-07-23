@@ -1,6 +1,8 @@
 package com.ipartek.formacion.controller;
 
 import java.io.IOException;
+import java.net.InetAddress;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,9 +19,9 @@ import com.ipartek.formacion.controller.pojo.Alert;
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	public static final String VIEW_BACKOFFICE = "backoffice/index.jsp";
+	public static final String VIEW_BACKOFFICE = "backoffice/crearVideo";
 	public static final String VIEW_LOGIN = "login.jsp";
-	public static String view = VIEW_BACKOFFICE;
+	
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -38,17 +40,27 @@ public class LoginController extends HttpServlet {
 		
 		if("admin".equals(usuario) && "admin".contentEquals(password)) {
 			HttpSession session = request.getSession();
-			session.setAttribute("usuario", "Paco");
+			//session.setMaxInactiveInterval(60*5); //5 min
 			
-			request.setAttribute("mensaje", new Alert("success", "Bienvenido" + usuario));
-			view = VIEW_BACKOFFICE;
+			session.setAttribute("usuario", "usuario"+ request.getRemoteAddr());
+			request.setAttribute("mensaje", new Alert("success", "Bienvenido " + usuario));
+			
+			String callback = (String) session.getAttribute("callback");
+			
+			if (callback == null) {
+				request.getRequestDispatcher(VIEW_BACKOFFICE).forward(request, response);
+			} else {
+				session.removeAttribute("callback");
+				response.sendRedirect(callback);
+			}	
 		} else {
 			request.setAttribute("mensaje", new Alert("danger", "Credenciales no correctas"));
-			view = VIEW_LOGIN;
+			request.getRequestDispatcher(VIEW_LOGIN).forward(request, response);
 		}
 		
-		request.getRequestDispatcher(view).forward(request, response);
 		
 	}
+	
+	//session.setAttribute("mensaje", new Alert("warning", "Las credenciales han caducado"));
 
 }

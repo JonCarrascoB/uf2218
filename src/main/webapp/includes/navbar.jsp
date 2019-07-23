@@ -8,17 +8,21 @@
     		<ul class="navbar-nav mr-auto">
       			<li class="nav-item active">
         			<a class="nav-link" href="index.jsp">Inicio <span class="sr-only">(current)</span></a>
+      			</li>	
+				<li class="nav-item dropdown">
+        			<a class="nav-link dropdown-toggle" href="backoffice/crearVideo?op=0" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          				Youtube
+        			</a>
+        			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          				<a class="dropdown-item" href="backoffice/crearVideo?op=0">Listado de Videos</a>
+	        			<a class="dropdown-item" href="backoffice/crearVideo?op=1">Crear Video</a>
+  					</div>
       			</li>
-      			
       			<c:if test="${usuario != null }">
-	      			<!-- <li class="nav-item dropdown"> -->
-	        			<a class="nav-link" href="backoffice/index.jsp">Youtube</a>
-	        			<!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-	          				<a class="dropdown-item" href="crearVideo?op=0">Listado de Videos</a>
-	          				<a class="dropdown-item" href="crearVideo?op=1">Crear Video</a>
-	        			</div>
-	      			</li> -->
-      			</c:if>
+      				<li class="nav-item active">
+      					<a class="nav-link" href="backoffice/index.jsp">BackOffice</a>
+      				</li>	
+      			</c:if>   		
       		</ul>
       		<c:if test="${usuario == null }">
       			<a class="nav-link text-white" href="login.jsp">Login <span class="sr-only">(current)</span><i class="fas fa-user"></i></a>
