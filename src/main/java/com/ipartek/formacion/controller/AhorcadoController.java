@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Validation;
 
+import com.ipartek.formacion.controller.pojo.Alert;
 import com.ipartek.formacion.model.dao.VideoDAO;
 
 /**
@@ -26,9 +27,15 @@ public class AhorcadoController extends HttpServlet {
 	
 	public static final String OP_PALABRA = "0";
 	public static final String OP_COMPROBAR = "1";
+	public static final int VIDA_PERDIDA = 1;
     
 	private static final ArrayList<String> PALABRAS = new ArrayList<String>();
-
+	private static String palabra;
+	private static char[] respuesta;
+	private static Boolean[] respRep;
+	private int vidas = 7;
+	private int aciertos = 0;
+	private int cont=0;
 	
 	
 	public void init(ServletConfig config) throws ServletException {
@@ -67,33 +74,71 @@ public class AhorcadoController extends HttpServlet {
 		case OP_COMPROBAR:
 			comprobar(request,response);
 			break;
+		default:
+			break;
 		}
-		
-		
-		
-		
-		
-		
-		int numIntentos = 7;
-		
-		if (palabra == null) {
-			
-			Random rd = new Random();
-			palabra = PALABRAS.get(rd.nextInt(PALABRAS.size()));
 			
 		request.getRequestDispatcher(VIEW_GAME).forward(request, response);
 	}
 
 
 	private void comprobar(HttpServletRequest request, HttpServletResponse response) {
-		String palabra = request.getParameter("palabra");
-		int tamano = 
-		
+		int tamano = palabra.length();
+	    do {
+	    	String election = request.getParameter("letra").trim().toLowerCase();
+		    if(election.isEmpty() ) {
+				request.setAttribute("mensaje", new Alert("danger", "No has introducido una letra"));
+			}else {
+				char letra = election.charAt(0);
+				if(palabra.contains(election)) {
+					for (int i = 0; i < tamano; i++) {
+						if (letra == palabra.toLowerCase().charAt(i) && respRep[i].equals(false)) {
+							respuesta[i] = letra;
+							respRep[i] = true;
+							cont++;
+						} 
+								 
+					}
+					aciertos = aciertos + cont;
+				} else {
+					vidas = vidas - VIDA_PERDIDA;
+				}
+		        cont = 0;
+		     
+		        request.setAttribute("respuesta", respuesta);
+		        request.setAttribute("aciertos", aciertos);
+		        request.setAttribute("vidas", vidas);
+			} 
+		} while (vidas != 0 && aciertos == tamano);
+	    
+	    if(vidas == 0) {
+	    	request.setAttribute("mensaje", new Alert("warning", "Mala suerte!!!, prueba a jugar otra vez"));
+	    } else {
+	    	request.setAttribute("mensaje", new Alert("success", "Enhorabuena, has ganado!!!!"));
+	    }
 	}
 
-
 	private void insertarPalabra(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+		palabra = request.getParameter("palabra").trim().toLowerCase();
+		
+		if(palabra.isEmpty()) {
+			request.setAttribute("mensaje", new Alert("danger", "No has introducido una palabra"));
+		}else {
+			int tamano = palabra.length();
+
+			respuesta = new char[tamano];
+			respRep = new Boolean[tamano];
+
+			for (int i = 0; i < tamano; i++) {
+				respuesta[i] = '_';
+			}
+			for (int i = 0; i < tamano; i++) {
+				respRep[i] = false;
+			}
+			
+			request.setAttribute("respuesta", respuesta);
+			request.setAttribute("respRep", respRep);
+		}
 		
 	}
 }
