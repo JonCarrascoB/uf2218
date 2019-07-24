@@ -9,7 +9,7 @@
 <h2>Bienvenido a nuestro BackOffice</h2>
 
 <ul>
-	<c:forEach items="${UsuariosLogeadosListener.usuarios}" var="v">
+	<c:forEach items="${UsuariosLogeadosListener.usuariosLogeados}" var="v">
 		<li>${v}</li>	
 	</c:forEach>
 </ul>

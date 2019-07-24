@@ -20,9 +20,7 @@ import com.ipartek.formacion.model.pojo.Video;
 @WebListener
 public class UsuariosLogeadosListener implements HttpSessionAttributeListener, HttpSessionListener {
 
-	
-	public static String nombre = "Esto es una variable";
-	public static ArrayList<String> usuarios = new ArrayList<String>();
+	public static ArrayList<String> usuariosLogeados = new ArrayList<String>();
 	
 	
     /**
@@ -53,8 +51,7 @@ public class UsuariosLogeadosListener implements HttpSessionAttributeListener, H
     public void attributeAdded(HttpSessionBindingEvent event)  {
     	
     	if("usuario".equalsIgnoreCase(event.getName())) {
-    		String usuario = event.getSession().getAttribute("usuario").toString();
-        	usuarios.add(usuario);
+    		usuariosLogeados.add((String) event.getValue());
     	}
     }
 
@@ -62,7 +59,9 @@ public class UsuariosLogeadosListener implements HttpSessionAttributeListener, H
      * @see HttpSessionAttributeListener#attributeRemoved(HttpSessionBindingEvent)
      */
     public void attributeRemoved(HttpSessionBindingEvent event)  { 
-         // TODO Auto-generated method stub
+    	if("usuario".equalsIgnoreCase(event.getName())) {
+    		usuariosLogeados.remove((String) event.getValue());
+    	}
     }
 
 	/**

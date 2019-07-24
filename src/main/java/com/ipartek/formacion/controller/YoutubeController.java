@@ -44,7 +44,7 @@ public class YoutubeController extends HttpServlet {
 	public static final String OP_ELIMINAR = "5";
 	
 	private static VideoDAO videoDAO;
-	private static ArrayList<Video> videos;
+	private static HashMap<Integer,Video> videos;
 	private Validator validator;
 	
 	
@@ -116,11 +116,10 @@ public class YoutubeController extends HttpServlet {
 			request.setAttribute("video", v );
 			
 			if(request.getSession().getAttribute("videos") == null) {
-				videos = new ArrayList<Video>();
-				videos.add(v);
-			} else {
-				videos.add(v);
+				videos = new HashMap<Integer,Video>();	
 			}
+			
+			videos.put(v.getId(), v);
 			request.getSession().setAttribute("videos", videos );
 			view = VIEW_DETALLE;
 		
@@ -195,7 +194,7 @@ public class YoutubeController extends HttpServlet {
 			request.setAttribute("mensaje", new Alert("succes", "El video ha sido eliminado correctamente"));
 			listar(request,response);
 		} else {
-			request.setAttribute("mensaje", new Alert("success", "Ha ocurrido un fallo en la eliminacion del video"));
+			request.setAttribute("mensaje", new Alert("danger", "Ha ocurrido un fallo en la eliminacion del video"));
 			listar(request,response);
 		}
 	

@@ -3,6 +3,8 @@
 
   		<h1 class="text-success">Hello Java Web App 3.5</h1>
   		
+  		<%@include file="../includes/mensaje.jsp"%>
+  		
   		<ul class="list-group text-primary">
   			<li class="list-group-item"><a href="ejemplos/basico.jsp">Ejemplo de Servlet Basico sin JSP</a></li>
   			<li class="list-group-item"><a href="ejemplos/basico2.jsp">Ejemplo de Servlet Basico con JSP</a></li>
@@ -19,6 +21,8 @@
   			<li class="list-group-item"><a href="ejemplos/filtros.jsp">Filtros</a></li>
   			<li class="list-group-item"><a href="ejemplos/listeners.jsp">Listeners o escuchadores de eventos</a></li>
 			<li class="list-group-item"><a href="ejemplos/redireccion.jsp">Redireccion</a></li>
+			<li class="list-group-item"><a href="calculadora/calculator.jsp">Iparlator, tu calculadora Web</a></li>
+			<li class="list-group-item"><a href="ahorcado/ahorcado.jsp">Ahorcado</a></li>
 		</ul>
   	
 <%@include file="includes/footer.jsp" %>
