@@ -32,7 +32,7 @@
 		    		value="1" step="1">
 		  		</div> -->
 	  		
-	  			<input type="submit" class="btn-outline-primary btn-block"value="${(video.id != -1)? 'Modificar':'Crear'}">
+	  			<input type="submit" id="btnSave" class="btn-outline-primary btn-block" value="${(video.id != -1)? 'Modificar':'Crear'}">
 			</form>
 		
 			<c:if test="${video.id != -1}">

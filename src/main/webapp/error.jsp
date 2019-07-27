@@ -5,17 +5,12 @@
     
    	<div class="jumbotron mt-4">
 		  <h1 class="display-4">Error 500</h1>
-		  <p class="lead">Lo sentimos pero parece que hay algun problema.</p>		  
-		  <a href="mailto:formacion@ipartek.com" class="btn btn-primary btn-lg" href="#" role="button">Mandanos un email por favor</a>
+		  <p class="lead">UPS!! Parece que ha ocurrido un fallo. Intentelo de nuevo dentro de un rato</p>
+		  <p>Si no, envienos un correo electronico pinchando en el enlace siguiente. Gracias</p>		  
+		  <a href="mailto:formacion@ipartek.com" class="btn btn-primary btn-lg" href="#" role="button">Email</a>
 		</div>
-	    	    	
-	    <div class="p-2 border border-danger">
-	    	<h2>Usar solo en Desarrollo</h2>	    	
-		    <p class="text-danger"><%=exception%></p>    
-		    <!-- Stack trace -->
-			<jsp:scriptlet>
-			  exception.printStackTrace(new java.io.PrintWriter(out));
-			</jsp:scriptlet>
-		</div>
+	  
+	   <img alt="Error 500" src="resources/images/500.png">
+	
     	    	
 <%@include file="../includes/footer.jsp"%> 

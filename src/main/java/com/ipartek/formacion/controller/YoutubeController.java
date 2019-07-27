@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -133,6 +134,7 @@ public class YoutubeController extends HttpServlet {
 		String nombre = request.getParameter("nombre");
 		String codigo = request.getParameter("codigo");
 		
+		
 		Video v = new Video();
 		v.setId(Integer.parseInt(sid));
 		v.setNombre(nombre);
@@ -169,7 +171,9 @@ public class YoutubeController extends HttpServlet {
 
 	private void listar(HttpServletRequest request, HttpServletResponse response) {
 	
+		
 		request.setAttribute("videos", videoDAO.getAll() );
+		
 		view = VIEW_INDEX;
 
 	}

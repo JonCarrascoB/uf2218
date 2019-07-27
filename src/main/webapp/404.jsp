@@ -5,6 +5,8 @@
 		  <h1 class="display-4">Error 404</h1>
 		  <p class="lead">Lo sentimos pero la página solicitada no existe.</p>		  
 		  <a href="mailto:formacion@ipartek.com" class="btn btn-primary btn-lg" href="#" role="button">Mandanos un email por favor</a>
-		</div>	
-
+		  <br>
+		  <img alt="Error 404" src="resources/images/404.png">
+	</div>	
+ 	
 <%@include file="../includes/footer.jsp" %>
