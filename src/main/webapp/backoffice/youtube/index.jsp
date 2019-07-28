@@ -46,7 +46,7 @@
       						<button type="button" class="btn btn-danger btn-block mb-2" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash-alt"></i></button>
       						
       						<!-- Modal -->
-      						<div class="modal" tabindex="-1" role="dialog">
+      						<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
   								<div class="modal-dialog" role="document">
     								<div class="modal-content">
       									<div class="modal-header">
