@@ -5,16 +5,7 @@
 
 	<h1>Ejercicio Nombres</h1>
 	
-	<% if(request.getAttribute("mensaje")!= null){ %>
-	<div class=row>
-		<div class="alert alert-${mensaje.tipo} alert-dismissible fade show" role="alert">
-	  		<strong>${mensaje.texto}</strong>
-	  		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-	    		<span aria-hidden="true">&times;</span>
-	  		</button>
-		</div>
-	</div>
-	<%} %>
+	<%@include file="../includes/mensaje.jsp"%>
 	
 	<div class=row>
 		<div class="col-8">

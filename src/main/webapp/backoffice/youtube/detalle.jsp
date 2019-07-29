@@ -1,4 +1,4 @@
-<%@page import="com.ipartek.formacion.controller.YoutubeController"%>
+<%@page import="com.ipartek.formacion.controller.backoffice.YoutubeController"%>
 <%@include file="../../includes/header.jsp" %>
 <%@include file="../../includes/navbar.jsp" %>
 	

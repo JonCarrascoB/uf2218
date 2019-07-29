@@ -53,7 +53,7 @@ public class NombresController extends HttpServlet {
 			request.setAttribute("nombres", nombres);	
 		}
 		
-		request.setAttribute("mensaje", "");
+		request.setAttribute("mensaje", new Alert("info", ""));
 		request.setAttribute("buscar", nameSearch);
 		
 		request.getRequestDispatcher("ejemplos/nombres.jsp").forward(request, response);
@@ -66,17 +66,16 @@ public class NombresController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String name = request.getParameter("nombre");
-		Alert mensaje = new Alert("danger", "nombre no valido");
 		if(name != null) {
 			name = name.trim();
 			if("".equalsIgnoreCase(name)) {
-				mensaje = new Alert("warning", "Por favor Escribe un nombre valido");
+				request.setAttribute("mensaje", new Alert("warning", "Por favor Escribe un nombre valido"));
 			} else {
 				nombres.add(name);
-				mensaje = new Alert("success", "El nuevo nombre ha sido guardado correctamente");
+				request.setAttribute("mensaje", new Alert("success", "El nuevo nombre ha sido guardado correctamente"));
 			}	
 		}
-		request.setAttribute("mensaje", mensaje);
+		request.setAttribute("mensaje", new Alert("danger", "nombre no valido"));
 		request.setAttribute("nombres", nombres);
 		
 		request.getRequestDispatcher("ejemplos/nombres.jsp").forward(request, response);

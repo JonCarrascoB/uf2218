@@ -1,4 +1,15 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<% // Gestion del idioma %>
+<c:set  var="locale" 
+			value="${not empty sessionScope.locale ? sessionScope.locale : 'es_ES'}" 
+			scope="session" />
+			
+	<fmt:setLocale value="${locale}" />
+	<fmt:setBundle basename="i18n.i18nmessages" /> 
+
+<% // Fin de la gestion del idioma %>
 
 <!doctype html>
 <html lang="es">

@@ -57,6 +57,15 @@ p {
 	padding-top: 10px;
 }
 
+nav img {
+	width:25px;
+	heigth: 25px;
+}
+
+img.inactive {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
 
 /*
 4. layouts - secciones de la web (cabecera, menus, pies)

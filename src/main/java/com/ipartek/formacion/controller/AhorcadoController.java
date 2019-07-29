@@ -36,7 +36,7 @@ public class AhorcadoController extends HttpServlet {
 	private int vidas = 7;
 	private int aciertos = 0;
 	private int cont=0;
-	
+	private String imagen;
 	
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
@@ -99,12 +99,14 @@ public class AhorcadoController extends HttpServlet {
 						} 
 								 
 					}
-					aciertos = aciertos + cont;
+					aciertos = aciertos + cont; //acierta
 				} else {
-					vidas = vidas - VIDA_PERDIDA;
+					vidas = vidas - VIDA_PERDIDA; //Pierde una vida
 				}
 		        cont = 0;
-		     
+		        dibujar(vidas);
+		        request.setAttribute("palabra", palabra);
+		        request.setAttribute("imagen", imagen);
 		        request.setAttribute("respuesta", respuesta);
 		        request.setAttribute("aciertos", aciertos);
 		        request.setAttribute("vidas", vidas);
@@ -113,10 +115,44 @@ public class AhorcadoController extends HttpServlet {
 	    
 	    if(vidas == 0) {
 	    	request.setAttribute("mensaje", new Alert("warning", "Mala suerte!!!, prueba a jugar otra vez"));
-	    } else {
+	    } else if (aciertos == tamano) {
 	    	request.setAttribute("mensaje", new Alert("success", "Enhorabuena, has ganado!!!!"));
+	    } else {
+	    	request.setAttribute("mensaje", new Alert("info", "Sigue Jugando!!!!"));
 	    }
 	}
+
+	private void dibujar(int v) {
+		
+		switch (v) {
+		case 7:
+			imagen= "7v";
+			break;
+		case 6:
+			imagen= "6v";
+			break;
+		case 5:
+			imagen= "5v";
+			break;
+		case 4:
+			imagen= "4v";
+			break;
+		case 3:
+			imagen= "3v";
+			break;
+		case 2:
+			imagen= "2v";
+			break;
+		case 1:
+			imagen= "1v";
+			break;
+		case 0:
+			imagen= "0v";
+			break;
+		}
+		
+	}
+
 
 	private void insertarPalabra(HttpServletRequest request, HttpServletResponse response) {
 		palabra = request.getParameter("palabra").trim().toLowerCase();
@@ -136,6 +172,7 @@ public class AhorcadoController extends HttpServlet {
 				respRep[i] = false;
 			}
 			
+			request.setAttribute("palabra", palabra);
 			request.setAttribute("respuesta", respuesta);
 			request.setAttribute("respRep", respRep);
 		}

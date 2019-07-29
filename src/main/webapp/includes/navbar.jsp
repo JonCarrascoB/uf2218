@@ -7,15 +7,15 @@
   		<div class="collapse navbar-collapse" id="navbarSupportedContent">
     		<ul class="navbar-nav mr-auto">
       			<li class="nav-item active">
-        			<a class="nav-link" href="index.jsp">Inicio <span class="sr-only">(current)</span></a>
+        			<a class="nav-link" href="index.jsp"><fmt:message key="menu.inicio" /> <span class="sr-only">(current)</span></a>
       			</li>	
 				<li class="nav-item dropdown">
         			<a class="nav-link dropdown-toggle" href="backoffice/crearVideo?op=0" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           				Youtube
         			</a>
         			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          				<a class="dropdown-item" href="backoffice/crearVideo?op=0">Listado de Videos</a>
-	        			<a class="dropdown-item" href="backoffice/crearVideo?op=1">Crear Video</a>
+          				<a class="dropdown-item" href="backoffice/crearVideo?op=0"><fmt:message key="youtube.listado" /></a>
+	        			<a class="dropdown-item" href="backoffice/crearVideo?op=1"><fmt:message key="youtube.nuevo" /></a>
   					</div>
       			</li>
       			<c:if test="${usuario != null }">
@@ -34,6 +34,12 @@
       		</c:if>
   		</div>
 	</nav>
-	<!-- Fin del navbar -->
+	
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ml-20">
+		<a  href="i18n?idiomaSeleccionado=en_EN&ruta=${pageContext.request.requestURI()}"><img alt="GB" src="resources/images/british.png" class="${sessionScope.locale != 'en_EN' ? 'inactive': ''  }"></a>
+		<a  href="i18n?idiomaSeleccionado=es_ES&ruta=${pageContext.request.requestURI()}"><img alt="ES" src="resources/images/Spain.png" class="${sessionScope.locale != 'es_ES' ? 'inactive': ''  }"></a>
+		<a href="i18n?idiomaSeleccionado=eu_ES&ruta=${pageContext.request.requestURI()}"><img alt="EU" src="resources/images/euskadi.png" class="${sessionScope.locale != 'eu_ES' ? 'inactive': ''  }"></a>
+    </nav>
+	<!-- Fin del navbars -->
   
   	<main class="container">

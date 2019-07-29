@@ -1,11 +1,12 @@
 <%@page import="com.ipartek.formacion.controller.CalculatorController"%>
 <%@include file="../includes/header.jsp" %>
 <%@include file="../includes/navbar.jsp" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 	
 	<h1>Iparlator, tu calculadora Web</h1>
 	<%@include file="../includes/mensaje.jsp"%>
 	
-	<form action="calculator" method="post" class="mb-2">
+	<form action="calculator" method="get" class="mb-2">
 		<div class="form-group">
     		<label for="num1">Inserte un numero:</label>
     		<input type="number" class="form-control" name="num1" id="num1" value="${num1}" step="0.01" >
@@ -27,9 +28,10 @@
 	</form>
 	
 	<div>
-		<h4>El resultado es:</h4>
-		${resultado}
-	
+		<c:if test="${resultado != null }">
+			<h4>El resultado es: </h4>
+			<p><fmt:formatNumber type="number" pattern="#,###.##" value="${resultado}" /></p>
+		</c:if>
 	</div>
 
 <%@include file="../includes/footer.jsp" %>

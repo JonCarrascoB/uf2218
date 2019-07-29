@@ -76,15 +76,22 @@ public class CalculatorController extends HttpServlet {
 		try {
 			num1 = Float.parseFloat(dato1);
 			num2 = Float.parseFloat(dato2);
-			resultado = num1 / num2;
+			if (num2 != 0) {
+				resultado = num1 / num2;
+			} else {
+				request.setAttribute("mensaje", new Alert("danger", "no se puede dividir entre 0"));
+			}
+			
 		} catch (Exception e) {
 			resultado = 0.00F;
 			request.setAttribute("mensaje", new Alert("danger", "Solo se pueden introducir numeros"));
+		} finally {
+			request.setAttribute("resultado", resultado);
+			request.setAttribute("num1", num1);
+			request.setAttribute("num2", num2);
 		}
 
-		request.setAttribute("resultado", resultado);
-		request.setAttribute("num1", num1);
-		request.setAttribute("num2", num2);
+		
 	}
 
 	private void multiplicar(HttpServletRequest request, HttpServletResponse response) {
@@ -98,11 +105,11 @@ public class CalculatorController extends HttpServlet {
 		} catch (Exception e) {
 			resultado = 0.00F;
 			request.setAttribute("mensaje", new Alert("danger", "Solo se pueden introducir numeros"));
+		}finally {
+			request.setAttribute("resultado", resultado);
+			request.setAttribute("num1", num1);
+			request.setAttribute("num2", num2);
 		}
-
-		request.setAttribute("resultado", resultado);
-		request.setAttribute("num1", num1);
-		request.setAttribute("num2", num2);
 		
 	}
 
@@ -117,12 +124,11 @@ public class CalculatorController extends HttpServlet {
 		} catch (Exception e) {
 			resultado = 0.00F;
 			request.setAttribute("mensaje", new Alert("danger", "Solo se pueden introducir numeros"));
+		}finally {
+			request.setAttribute("resultado", resultado);
+			request.setAttribute("num1", num1);
+			request.setAttribute("num2", num2);
 		}
-
-		
-		request.setAttribute("resultado", resultado);
-		request.setAttribute("num1", num1);
-		request.setAttribute("num2", num2);
 		
 	}
 
@@ -137,14 +143,11 @@ public class CalculatorController extends HttpServlet {
 		} catch (Exception e) {
 			resultado = 0.00F;
 			request.setAttribute("mensaje", new Alert("danger", "Solo se pueden introducir numeros"));
+		}finally {
+			request.setAttribute("resultado", resultado);
+			request.setAttribute("num1", num1);
+			request.setAttribute("num2", num2);
 		}
-
-		request.setAttribute("resultado", resultado);
-		request.setAttribute("num1", num1);
-		request.setAttribute("num2", num2);
-		
-		
-		
 	}
 
 }

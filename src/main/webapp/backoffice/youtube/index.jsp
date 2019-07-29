@@ -1,4 +1,4 @@
-<%@page import="com.ipartek.formacion.controller.YoutubeController"%>
+<%@page import="com.ipartek.formacion.controller.backoffice.YoutubeController"%>
 
 <%@page import="com.ipartek.formacion.model.dao.VideoDAO"%>
 <%@page import="com.ipartek.formacion.model.pojo.Video" %>
