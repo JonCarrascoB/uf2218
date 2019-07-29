@@ -10,11 +10,11 @@
 	</ul>
 	
 	<h3>Ejemplo de Listener</h3>
-	<p>Se pintan los usuarios que se hn logeado en la pagina</p>
+	<p>Se pintan los usuarios que se han logeado en la pagina</p>
 	<ul>
-	<c:forEach items="${UsuariosLogeadosListener.usuariosLogeados}" var="v">
-		<li>${v}</li>	
-	</c:forEach>
-</ul>
+		<c:forEach items="${UsuariosLogeadosListener.usuariosLogeados}" var="v">
+			<li>${v}</li>	
+		</c:forEach>
+	</ul>
 	
 <%@include file="../includes/footer.jsp" %>

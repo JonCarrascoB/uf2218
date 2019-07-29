@@ -110,6 +110,7 @@ public class AhorcadoController extends HttpServlet {
 		        request.setAttribute("respuesta", respuesta);
 		        request.setAttribute("aciertos", aciertos);
 		        request.setAttribute("vidas", vidas);
+		        request.setAttribute("tamano", tamano);
 			} 
 		} while (vidas != 0 && aciertos == tamano);
 	    
@@ -175,6 +176,7 @@ public class AhorcadoController extends HttpServlet {
 			request.setAttribute("palabra", palabra);
 			request.setAttribute("respuesta", respuesta);
 			request.setAttribute("respRep", respRep);
+			request.setAttribute("tamano", tamano);
 		}
 		
 	}

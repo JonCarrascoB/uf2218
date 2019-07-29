@@ -46,18 +46,14 @@ public class IdiomaController extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("locale", idiomaSeleccionado);
 		
+		request.setAttribute("mensajeInicio", properties.getString("menu.inicio"));
+		
 		if(ruta != null) {
 			request.getRequestDispatcher(ruta).forward(request, response);
 		} else {
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 		
-		request.setAttribute("mensajeInicio", properties.getString("menu.inicio"));
-		
-		
-		//request.setAttribute("mensajeIdioma", "TODO terminar");
-		
-		request.getRequestDispatcher("ejemplos/i18n.jsp").forward(request, response);
 	}
 
 	/**

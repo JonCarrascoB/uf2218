@@ -1,3 +1,4 @@
+<%@page import="com.ipartek.formacion.controller.backoffice.YoutubeController"%>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   		<a class="navbar-brand" href="#">JEE</a>
   		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,10 +36,10 @@
   		</div>
 	</nav>
 	
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ml-20">
-		<a  href="i18n?idiomaSeleccionado=en_EN&ruta=${pageContext.request.requestURI()}"><img alt="GB" src="resources/images/british.png" class="${sessionScope.locale != 'en_EN' ? 'inactive': ''  }"></a>
-		<a  href="i18n?idiomaSeleccionado=es_ES&ruta=${pageContext.request.requestURI()}"><img alt="ES" src="resources/images/Spain.png" class="${sessionScope.locale != 'es_ES' ? 'inactive': ''  }"></a>
-		<a href="i18n?idiomaSeleccionado=eu_ES&ruta=${pageContext.request.requestURI()}"><img alt="EU" src="resources/images/euskadi.png" class="${sessionScope.locale != 'eu_ES' ? 'inactive': ''  }"></a>
+	<nav class="bg-dark">
+		<a href="i18n?idiomaSeleccionado=en_EN&ruta=${pageContext.request.requestURI}"><img alt="GB" src="resources/images/british.png" class="${sessionScope.locale != 'en_EN' ? 'inactive': ''  }"></a>
+		<a href="i18n?idiomaSeleccionado=es_ES&ruta=${pageContext.request.requestURI}"><img alt="ES" src="resources/images/Spain.png" class="${sessionScope.locale != 'es_ES' ? 'inactive': ''  }"></a>
+		<a href="i18n?idiomaSeleccionado=eu_ES&ruta=${pageContext.request.requestURI}"><img alt="EU" src="resources/images/euskadi.png" class="${sessionScope.locale != 'eu_ES' ? 'inactive': ''  }"></a>
     </nav>
 	<!-- Fin del navbars -->
   

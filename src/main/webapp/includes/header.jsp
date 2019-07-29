@@ -1,6 +1,8 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
+<%@page errorPage="error.jsp" %>
+
 <% // Gestion del idioma %>
 <c:set  var="locale" 
 			value="${not empty sessionScope.locale ? sessionScope.locale : 'es_ES'}" 

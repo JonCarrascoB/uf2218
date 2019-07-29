@@ -29,17 +29,30 @@
 	  
 	  		<button type="submit" class="btn btn-primary">Comprobar</button>
 		</form>
-	
-		<div class="row mt-2">
-			<div class="col-03">
-			<c:forEach items="${respuesta}" var="letras">
-				${letras}
-			</c:forEach>
+			<div class="row mt-2">
+				<div class="col-03 mt-2 ml-2 mr-10">
+					<section class="p-3 mb-3 bg-light shadow" >
+						<c:forEach items="${respuesta}" var="letras">
+							${letras}
+						</c:forEach>
+					</section>	
+				</div>
+				<div class="col-06 mt-2">
+					<section class="p-3 mb-3 bg-light shadow" >
+						<p>Te quedan las siguientes vidas: ${vidas}/7</p>
+						<img alt="${imagen}" src="resources/images/ahorcadoImg/${imagen}.png">
+					</section>
+				</div>
+				<!-- 
+				<div class="col-06 mt-2">
+					<section class="p-3 mb-3 bg-light shadow" >
+						<c:if test="${vidas == 0 || aciertos == tamano }">
+							<a class="btn btn-success" href="ahorcado">Volver a jugar</a>
+						</c:if>
+					</section>
+				</div>
+				 -->
 			</div>
-			<div class="col-09">
-				<p>Te quedan las siguientes vidas: ${vidas}/7</p>
-				<img alt="${imagen}" src="resources/images/ahorcadoImg/${imagen}.png">
-			</div>
-		</div>
+		</section>
 	</c:if>
 <%@include file="../includes/footer.jsp" %>

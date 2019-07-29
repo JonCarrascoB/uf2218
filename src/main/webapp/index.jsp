@@ -24,7 +24,7 @@
     				<a class="dropdown-item" href="ejemplos/filtros.jsp">Filtros</a>
     				<a class="dropdown-item" href="ejemplos/listeners.jsp">Listeners o escuchadores de eventos</a>
     				<a class="dropdown-item" href="ejemplos/redireccion.jsp">Redireccion</a>
-    				<a class="dropdown-item" href="i18n">I18N</a>
+    				<a class="dropdown-item" href="ejemplos/i18n.jsp">I18N</a>
     				<a class="dropdown-item" href="ejemplos/cookies.jsp">Cookies</a>
   				</div>
 			</div>
